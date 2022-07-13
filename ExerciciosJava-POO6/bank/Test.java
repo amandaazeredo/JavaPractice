@@ -27,27 +27,27 @@ public class Test {
 	
 	System.out.println("*** SAVINGS ACCOUNT TEST ***");
 	
-	SavingsAccount testSavingsAccount = new SavingsAccount();
-	testSavingsAccount.setClientName("Client2");
-	testSavingsAccount.setAccountNumber("22222");
-	testSavingsAccount.setAccountIncome(13);
-	
-	System.out.println("Do you want to deposite and/or withdraw an amount? (y/n)");
-	String answerSavingsAccount = sc.next();
-	
-	if(answerSavingsAccount.equalsIgnoreCase("y")) {
-	changeBalance(testSavingsAccount, sc, 0);
-	} else if(answerSavingsAccount.equalsIgnoreCase("n")) {
-		System.out.println(testSavingsAccount);
-	} else {
-		System.out.println("error");
-	}
-	
-	if(testSavingsAccount.calculateNewBalance(0.05)) {
-		System.out.println("Income applied! New balance = " + testSavingsAccount.getBalance());
-	} else {
-		System.out.println("Today is not income day, new balance has not been calculated!");
-	}
+		SavingsAccount testSavingsAccount = new SavingsAccount();
+		testSavingsAccount.setClientName("Client2");
+		testSavingsAccount.setAccountNumber("22222");
+		testSavingsAccount.setAccountIncome(13);
+
+		System.out.println("Do you want to deposite and/or withdraw an amount? (y/n)");
+		String answerSavingsAccount = sc.next();
+
+		if(answerSavingsAccount.equalsIgnoreCase("y")) {
+		changeBalance(testSavingsAccount, sc, 0);
+		} else if(answerSavingsAccount.equalsIgnoreCase("n")) {
+			System.out.println(testSavingsAccount);
+		} else {
+			System.out.println("error");
+		}
+
+		if(testSavingsAccount.calculateNewBalance(0.05)) {
+			System.out.println("Income applied! New balance = " + testSavingsAccount.getBalance());
+		} else {
+			System.out.println("Today is not income day, new balance has not been calculated!");
+		}
 	
 	System.out.println("*** SPECIAL ACCOUNT TEST ***");
 		
@@ -68,21 +68,19 @@ public class Test {
 		}
 }
 
-		protected static void changeBalance(BankAccount test, Scanner sc, double valor) {
-			System.out.println("Enter a deposite amount");
-			test.toDeposite(sc.nextDouble());
-			System.out.println("Enter a withdraw amount");
-			double withdrawAmount = sc.nextDouble();
-			test.toWhithdraw(withdrawAmount);
+	protected static void changeBalance(BankAccount test, Scanner sc, double valor) {
+		System.out.println("Enter a deposite amount");
+		test.toDeposite(sc.nextDouble());
+		System.out.println("Enter a withdraw amount");
+		double withdrawAmount = sc.nextDouble();
+		test.toWhithdraw(withdrawAmount);
 			
-			if(withdrawAmount < test.getBalance()) {
-				System.out.println("Successful Withdrawal! Now your Balance is = " + test.getBalance());
-			} else {
-				System.out.println("Withdrawal Denied! Insufficient Balance for withdraw $" +withdrawAmount+ ". Your Balance is = "+ test.getBalance());
-			}
+		if(withdrawAmount < test.getBalance()) {
+			System.out.println("Successful Withdrawal! Now your Balance is = " + test.getBalance());
+		} else {
+			System.out.println("Withdrawal Denied! Insufficient Balance for withdraw $" +withdrawAmount+ ". Your Balance is = "+ test.getBalance());
+		}
 			System.out.println(test);
 			
 		}
-		
 }
-
