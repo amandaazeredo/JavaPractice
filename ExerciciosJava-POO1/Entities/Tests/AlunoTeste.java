@@ -42,5 +42,4 @@ public class AlunoTeste {
 		 
 		 sc.close();
 	}
-
 }
